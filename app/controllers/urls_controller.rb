@@ -24,6 +24,11 @@ class UrlsController < ApplicationController
 		end
 	end
 
+	def short
+		url = Url.find(params[:id])
+		redirect_to url.long_url
+	end
+
 	def destroy
 		@url = Url.find(params[:id])
 		@url.destroy
