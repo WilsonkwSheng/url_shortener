@@ -1,7 +1,7 @@
 class UrlsController < ApplicationController
 	def index
 		@urls = Url.all
-		@url = Url.new
+		@url = Url.new # ask sheng
 	end
 
 	def show
@@ -22,6 +22,12 @@ class UrlsController < ApplicationController
 		else
 			render 'new'
 		end
+	end
+
+	def destroy
+		@url = Url.find(params[:id])
+		@url.destroy
+		redirect_to urls_path
 	end
 
 	private
